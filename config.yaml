@@ -1,0 +1,37 @@
+# Application
+ui:
+  page_title: "WASDE Report Summarizer"
+  max_file_size_mb: 50
+
+# LLM provider: "openai" | "groq" | "gemini"
+# - openai: requires OPENAI_API_KEY (paid)
+# - groq: free cloud key at https://console.groq.com/keys
+# - gemini: free tier key at https://aistudio.google.com/app/apikey
+llm:
+  provider: "groq"
+  groq:
+    base_url: "https://api.groq.com/openai/v1"
+    model: "llama-3.1-8b-instant"
+  gemini:
+    model: "gemini-1.5-flash"
+
+# OpenAI API (key from OPENAI_API_KEY env var) - used when llm.provider is "openai"
+openai:
+  model: "gpt-4.1"
+  max_tokens: 2048
+  temperature: 0.3
+  # Max characters of commentary sent to LLM (avoids 413). Longer text is truncated.
+  max_commentary_chars: 12000
+
+# PDF parsing: section headers used to segment commentary by commodity
+pdf:
+  commodity_headers:
+    - Wheat
+    - Coarse Grains
+    - Rice
+    - Oilseeds
+    - Cotton
+    - Sugar
+    - Livestock
+    - Poultry
+    - Dairy
