@@ -59,35 +59,44 @@ def inject_custom_theme():
         
         /* Success message */
         div[data-testid="stSuccess"] {
-            background-color: #1A1E26 !important;
-            border-left: 3px solid #10B981 !important;
+            background-color: #064E3B !important; /* Dark Green */
+            border: 1px solid #10B981 !important;
+            border-left: 5px solid #10B981 !important;
             color: #FFFFFF !important;
+            border-radius: 8px;
         }
         
         div[data-testid="stSuccess"] p {
             color: #FFFFFF !important;
+            font-weight: 500;
         }
         
         /* Info message */
         div[data-testid="stInfo"] {
-            background-color: #1A1E26 !important;
-            border-left: 3px solid #6B7280 !important;
+            background-color: #1E3A8A !important; /* Dark Blue */
+            border: 1px solid #3B82F6 !important;
+            border-left: 5px solid #3B82F6 !important;
             color: #FFFFFF !important;
+            border-radius: 8px;
         }
         
         div[data-testid="stInfo"] p {
             color: #FFFFFF !important;
+            font-weight: 500;
         }
         
         /* Error message */
         div[data-testid="stError"] {
-            background-color: #2D1A1A !important;
-            border-left: 3px solid #EF4444 !important;
+            background-color: #450A0A !important; /* Dark Red */
+            border: 1px solid #EF4444 !important;
+            border-left: 5px solid #EF4444 !important;
             color: #FFFFFF !important;
+            border-radius: 8px;
         }
         
         div[data-testid="stError"] p {
             color: #FFFFFF !important;
+            font-weight: 500;
         }
         
         /* Button */
@@ -140,47 +149,71 @@ def inject_custom_theme():
             color: #E5E7EB;
         }
         
+        /* Title */
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #FFFFFF !important;
+            margin-bottom: 0.25rem;
+        }
+
         /* Subheader */
         h3 {
             font-size: 1.2rem;
             font-weight: 500;
-            color: #FFFFFF;
+            color: #FFFFFF !important;
             margin: 1rem 0;
         }
-        
-        /* Caption text for section count */
-        .stCaption {
-            color: #9CA3AF;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-        }
-        
-        /* Hide streamlit branding */
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        
+
         /* Markdown text */
         .stMarkdown {
             font-size: 0.95rem;
             line-height: 1.5;
-            color: #E5E7EB;
+            color: #FFFFFF !important;
+        }
+
+        /* Labels and Captions */
+        label, .stCaption, p {
+            color: #FFFFFF !important;
         }
         
         /* File uploader drag & drop area */
-        .stFileUploader > div {
-            background-color: #1A1E26 !important;
-            border-color: #2D3748 !important;
+        .stFileUploader [data-testid="stFileUploaderDropzone"] {
+            background-color: #111827 !important;
+            border: 2px dashed #4B5563 !important;
+            color: #FFFFFF !important;
+            border-radius: 12px;
+        }
+        
+        .stFileUploader [data-testid="stFileUploaderDropzone"]:hover {
+            border-color: #3B82F6 !important;
+            background-color: #1F2937 !important;
+        }
+        
+        /* File uploader text/button */
+        .stFileUploader label, .stFileUploader p, .stFileUploader span {
             color: #FFFFFF !important;
         }
         
-        .stFileUploader > div:hover {
-            border-color: #4A5568 !important;
-            background-color: #2D3748 !important;
+        /* Selected file name visibility */
+        [data-testid="stFileUploaderFileName"] {
+            color: #FFFFFF !important;
+        }
+
+        /* File uploader icon and placeholder */
+        .stFileUploader svg {
+            fill: #FFFFFF !important;
         }
         
-        /* File uploader text */
-        .stFileUploader label {
-            color: #FFFFFF !important;
+        .stFileUploader button {
+            background-color: #3B82F6 !important;
+            color: white !important;
+            border-radius: 6px !important;
+        }
+
+        /* Placeholder text specifically */
+        .stFileUploader [data-testid="stFileUploaderDropzone"] div div {
+            color: #E5E7EB !important;
         }
         
         /* Column text */
@@ -193,29 +226,46 @@ def inject_custom_theme():
             border-top-color: #FFFFFF !important;
         }
         
-        /* Select box if any */
-        .stSelectbox label {
-            color: #FFFFFF !important;
+        /* Tabs styling */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 24px;
+            background-color: transparent !important;
         }
-        
-        /* Radio buttons if any */
-        .stRadio label {
-            color: #FFFFFF !important;
+
+        .stTabs [data-baseweb="tab"] {
+            height: 50px;
+            white-space: pre-wrap;
+            background-color: transparent !important;
+            border-radius: 4px 4px 0px 0px;
+            gap: 1px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #9CA3AF !important;
+            font-weight: 400;
         }
-        
-        /* Text input if any */
-        .stTextInput label {
-            color: #FFFFFF !important;
-        }
-        
-        .stTextInput input {
+
+        .stTabs [aria-selected="true"] {
             background-color: #1A1E26 !important;
             color: #FFFFFF !important;
-            border-color: #2D3748 !important;
+            border-bottom: 2px solid #3B82F6 !important;
+        }
+
+        /* Text area and input enhancement */
+        .stTextInput input, .stTextArea textarea {
+            background-color: #1A1E26 !important;
+            color: #FFFFFF !important;
+            border: 1px solid #3B82F6 !important; /* Blue border for visibility */
+            font-size: 1rem !important;
         }
         
-        .stTextInput input:focus {
-            border-color: #4A5568 !important;
+        /* Search results styling */
+        .search-results {
+            background-color: #1A1E26;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3B82F6;
+            margin-top: 1rem;
+            color: #FFFFFF;
         }
     </style>
     """, unsafe_allow_html=True)
