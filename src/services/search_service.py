@@ -51,6 +51,7 @@ def search_content(query: str, sections: dict[str, str]) -> str:
         return "Error: LLM client not configured."
 
     try:
+ 
         resp = client.chat.completions.create(
             model=model_id,
             messages=[
